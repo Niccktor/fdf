@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/14 15:49:27 by tbeguin           #+#    #+#              #
-#    Updated: 2019/01/14 16:05:46 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/01/14 16:33:50 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,15 +39,15 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit \
 		$(FT_LNK) $(OBJ) -o $(NAME)
-	@echo "\033[36m$(NAME) Created\033[0m]"
+	@echo "\033[36m$(NAME) Created\033[0m"
 
 clean :
 	@rm -Rf $(OBJ_DIR)
-	@echo"\033[31mRemoved obj files\033[0m"
-	@make clean -C $(LIB_FT)
+	@echo "\033[31mRemoved obj files\033[0m"
 
 fclean : clean
 	@rm -f $(NAME)
-	@echo "\033[31mRemoved $(NAME)\033[0m"
+	@make fclean -C $(LIB_FT)
+	@echo "\033[31mRemoved $(NAME)"
 
 re : fclean all
