@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/01/14 18:33:06 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ typedef struct	s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-}
+}				t_mlx;
+
+/*
+ *					event.c
+ */
+int		ft_key_hook(int key, void *para);
+int		ft_mouse_hook(int button, int x, int y, void *para);
+
 
 
 
