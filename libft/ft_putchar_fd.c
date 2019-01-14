@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/18 19:32:35 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/18 19:33:32 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+void	ft_putchar_fd(char c, int fd)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	write(fd, &c, 1);
 }
-
-
-
-#endif

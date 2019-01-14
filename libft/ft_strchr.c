@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/17 01:14:20 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/17 01:23:28 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+char	*ft_strchr(const char *s, int c)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	while (*s && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return ((char *)s);
+	if (!c && *s == '\0')
+		return ((char *)s);
+	return (NULL);
 }
-
-
-
-#endif

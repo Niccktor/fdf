@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/14 23:55:25 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/14 23:57:04 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+void	*ft_memalloc(size_t size)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void *mem;
+
+	mem = (void *)malloc(size * sizeof(void *));
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
 }
-
-
-
-#endif

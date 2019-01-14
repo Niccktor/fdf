@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/15 00:58:34 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/17 06:03:24 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+char	*ft_strtrim(char const *s)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	int start;
+	int end;
+
+	if (!s)
+		return (NULL);
+	end = (int)ft_strlen(s) - 1;
+	start = 0;
+	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
+		start++;
+	while ((s[end] == ' ' || s[end] == '\n' || s[end] == '\t') && end > start)
+		end--;
+	return (ft_strsub(s, (unsigned int)start, (end - start + 1)));
 }
-
-
-
-#endif

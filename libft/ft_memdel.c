@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/14 23:58:36 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/14 23:59:38 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+void	ft_memdel(void **ap)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }
-
-
-
-#endif

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/09 16:31:13 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/18 20:05:45 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include <string.h>
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+void	*ft_memset(void *b, int c, size_t n)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	unsigned char	*tmpb;
+
+	tmpb = b;
+	while (n--)
+		*tmpb++ = (unsigned char)c;
+	return (b);
 }
-
-
-
-#endif

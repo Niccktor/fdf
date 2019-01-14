@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:06:50 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:27:06 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/01/14 16:37:56 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int 	ft_hook(int key)
 {
+	if (key == 53)
+		mlx_destroy_window()
 	ft_putnbr(key);
 	ft_putstr("\n");
 	return (0);

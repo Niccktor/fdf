@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/14 23:03:49 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/18 20:07:15 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	int i;
+
+	i = 0;
+	while (src[i] != '\0' && n > 0)
+	{
+		dst[i] = src[i];
+		i++;
+		n--;
+	}
+	while (n > 0)
+	{
+		dst[i] = '\0';
+		n--;
+		i++;
+	}
+	return (dst);
 }
-
-
-
-#endif

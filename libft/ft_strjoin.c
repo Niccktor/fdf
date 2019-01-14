@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/14 22:57:50 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/14 23:02:38 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include <string.h>
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	char	*new;
+
+	if (!s1 || !s2)
+		return (NULL);
+	new = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (!new)
+		return (NULL);
+	ft_strcpy(new, s1);
+	ft_strcat(new, s2);
+	return (new);
 }
-
-
-
-#endif

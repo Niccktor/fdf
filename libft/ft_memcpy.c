@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/09 16:59:44 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/18 20:04:54 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include <string.h>
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	char		*edst;
+	const char	*esrc;
+
+	edst = dst;
+	esrc = src;
+	while (n--)
+		*edst++ = *esrc++;
+	return (dst);
 }
-
-
-
-#endif

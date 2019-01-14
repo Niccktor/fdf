@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/15 00:22:30 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/17 05:56:32 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	char	*new;
+	int		i;
+	size_t	len;
+
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	new = (char *)malloc((len + 1) * sizeof(char));
+	i = 0;
+	if (!new)
+		return (NULL);
+	new[len] = '\0';
+	while (s[i] != '\0')
+	{
+		new[i] = (*f)(i, s[i]);
+		i++;
+	}
+	return (new);
 }
-
-
-
-#endif

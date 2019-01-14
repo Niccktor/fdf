@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/14 22:52:12 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/14 23:37:40 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+char	*ft_strdup(const char *s)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	char	*dst;
+	size_t	len;
+
+	len = ft_strlen((char *)s);
+	dst = ft_strnew(len);
+	if (!dst)
+		return (NULL);
+	while (len--)
+		dst[len] = s[len];
+	return (dst);
 }
-
-
-
-#endif

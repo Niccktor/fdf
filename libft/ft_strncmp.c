@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/17 01:43:55 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/17 04:41:55 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	while ((unsigned char)*s1 == (unsigned char)*s2 && n--)
+	{
+		if (*s1 == '\0' || *s2 == '\0')
+			return (0);
+		s1++;
+		s2++;
+	}
+	if (!n)
+		return ((unsigned char)*--s1 - (unsigned char)*--s2);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
-
-
-
-#endif

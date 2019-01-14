@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 16:39:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2018/11/18 21:59:38 by tbeguin           #+#    #+#             */
+/*   Updated: 2018/11/18 22:15:58 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
+#include "libft.h"
 
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <mlx.h>
-
-typedef struct	s_mlx
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	t_list *now;
+	t_list *first;
+	t_list *new;
+
+	if (!lst || !f)
+		return (NULL);
+	first = NULL;
+	while (lst)
+	{
+		new = (*f)(lst);
+		if (first)
+		{
+			now->next = new;
+			now = new;
+		}
+		else
+		{
+			first = new;
+			now = first;
+		}
+		lst = lst->next;
+	}
+	return (first);
 }
-
-
-
-#endif
