@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:06:50 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/14 19:36:50 by tbeguin          ###   ########.fr       */
+/*   Created: 2019/01/14 18:45:12 by tbeguin           #+#    #+#             */
+/*   Updated: 2019/01/14 20:03:49 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-int		main(/*int argc, char **argv*/)
+void		ft_draw_ligne(t_mlx *mlx_all, int x, int y, int color)
 {
-	t_mlx	*mlx_all;
+	int		dx;
+	int		dy;
+	int		e;
 
-	/*if (argc != 2)
+	e = mlx_all->win->x_ligne - x;
+	dx = e * 2;
+	dy = (mlx_all->win->y_ligne) * 2;
+	while (x <= mlx_all->win->x_ligne)
 	{
-		ft_putstr("usage : ./fdf map_file\n");
-		return (-1);
-	}*/
-	mlx_all = ft_new_mlx();
-	mlx_all = ft_new_win(mlx_all, "fdf", 1920, 1080);
-
-
-	mlx_key_hook(mlx_all->win->win_ptr, ft_key_hook, (void *)mlx_all);
-	mlx_mouse_hook(mlx_all->win->win_ptr, ft_mouse_hook, (void *)mlx_all);
-	mlx_loop(mlx_all->mlx_ptr);
-	return (0);
+		mlx_pixel_put(mlx_all->mlx_ptr, mlx_all->win->win_ptr, x, y, color);
+		x++;
+		if ((e = e -dy) <= 0)
+		{
+			y++;
+			e+=dx;
+		}
+	}
 }

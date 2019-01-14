@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/14 15:49:27 by tbeguin           #+#    #+#              #
-#    Updated: 2019/01/14 18:31:35 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/01/14 20:01:54 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,10 @@ OBJ_DIR = ./obj
 LIB_FT	= ./libft
 FT_LNK	= -L $(LIB_FT) -l ft
 
-SRC = main.c \
-	  event.c
+SRC = main.c	\
+	  event.c	\
+	  util.c	\
+	  draw.c
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
