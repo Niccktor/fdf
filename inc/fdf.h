@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/16 13:39:26 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:32:53 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct	s_point
 
 typedef struct	s_bres
 {
-	t_point		*cor;
+	t_point		*cor1;
+	t_point		*cor2;
 	int			x_inc;
 	int			y_inc;
 	int			ex;
@@ -34,6 +35,7 @@ typedef struct	s_bres
 	int 		dy;
 	int			dx_const;
 	int			dy_const;
+	int 		e;
 }				t_bres;
 
 
@@ -68,7 +70,7 @@ t_mlx	*ft_new_mlx();
 t_mlx	*ft_new_win(t_mlx *mlx_all, char *s, int size_x, int size_y);
 t_point *ft_new_point(int x, int y);
 t_bres	*ft_new_bres(int x1, int y1, int x2, int y2);
-
+int		ft_abs(int x);
 /*
  *
  */

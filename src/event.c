@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 18:31:01 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/16 13:02:15 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/01/16 13:46:08 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int 	ft_key_hook(int key, void *para)
 		exit(0);
 		return (1);
 	}
+	if (key == 15)
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
 	ft_putstr("----------------------key----------------------\n");
 	ft_putnbr(key);
 	ft_putstr("\n");

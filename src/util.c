@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 19:30:51 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/16 13:25:55 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:07:31 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_abs(int x)
 {
 	return (x < 0 ? -x : x);
 }
-
+/*
 t_bres		*ft_new_bres(int x1, int y1, int x2, int y2)
 {
 	t_bres	*new;
@@ -86,5 +86,18 @@ t_bres		*ft_new_bres(int x1, int y1, int x2, int y2)
 	new->dy_const = new->ey;
 	new->dx = new->ex * 2;
 	new->dy = new->ey * 2;
+	return (new);
+}
+*/
+
+t_bres		*ft_new_bres(int x1, int y1, int x2, int y2)
+{
+	t_bres *new;
+
+	new = (t_bres *)ft_memalloc(sizeof(t_bres));
+	new->cor1 = (t_point *)ft_new_point(x1, y1);
+	new->cor2 = (t_point *)ft_new_point(x2, y2);
+	new->dx = new->cor2->x- new->cor1->x;
+	new->dy = new->cor2->y - new->cor1->y;
 	return (new);
 }
