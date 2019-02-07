@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/14 15:49:27 by tbeguin           #+#    #+#              #
-#    Updated: 2019/01/14 20:01:54 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/02/07 15:12:31 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 $(NAME) : $(OBJ)
 	@$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit \
 		$(FT_LNK) $(OBJ) -o $(NAME)
-	@echo "\033[36m$(NAME) Created\033[0m"
+	@echo "\033[32m$(NAME) Created\033[0m"
 
 clean :
 	@rm -Rf $(OBJ_DIR)
