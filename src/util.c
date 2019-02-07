@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 19:30:51 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/16 14:07:31 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/07 16:47:51 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,40 +58,6 @@ int		ft_abs(int x)
 /*
 t_bres		*ft_new_bres(int x1, int y1, int x2, int y2)
 {
-	t_bres	*new;
-
-
-	ft_putstr("-----new-bres------\nx1 : ");
-	ft_putnbr(x1);
-	ft_putstr("\ny1 : ");
-	ft_putnbr(y1);
-	ft_putstr("\nx2 : ");
-	ft_putnbr(x2);
-	ft_putstr("\ny2 : ");
-	ft_putnbr(y2);
-	ft_putstr("\n-------------------\n");
-
-
-	new = (t_bres *)ft_memalloc(sizeof(t_bres));
-	new->cor = ft_new_point(x1, y1);
-	new->x_inc = 1;
-	new->y_inc = 1;
-	if (x1 > x2)
-		new->x_inc = -1;
-	if (y1 > y2)
-		new->x_inc = -1;
-	new->ex = ft_abs(x2 - x1);
-	new->ey = ft_abs(y2 - y1);
-	new->dx_const = new->ex;
-	new->dy_const = new->ey;
-	new->dx = new->ex * 2;
-	new->dy = new->ey * 2;
-	return (new);
-}
-*/
-
-t_bres		*ft_new_bres(int x1, int y1, int x2, int y2)
-{
 	t_bres *new;
 
 	new = (t_bres *)ft_memalloc(sizeof(t_bres));
@@ -100,4 +66,4 @@ t_bres		*ft_new_bres(int x1, int y1, int x2, int y2)
 	new->dx = new->cor2->x- new->cor1->x;
 	new->dy = new->cor2->y - new->cor1->y;
 	return (new);
-}
+}*/

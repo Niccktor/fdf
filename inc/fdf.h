@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/01/16 14:32:53 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/07 16:44:56 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,16 @@ typedef struct	s_point
 
 typedef struct	s_bres
 {
-	t_point		*cor1;
-	t_point		*cor2;
+	int			x1;
+	int			y1;
+	int			x2;
+	int			y2;
+	double		dx;
+	double		dy;
 	int			x_inc;
 	int			y_inc;
-	int			ex;
-	int			ey;
-	int			dx;
-	int 		dy;
-	int			dx_const;
-	int			dy_const;
-	int 		e;
+	int			i;
+	int			error;
 }				t_bres;
 
 
