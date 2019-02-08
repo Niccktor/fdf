@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 16:06:50 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/08 18:11:21 by tbeguin          ###   ########.fr       */
+/*   Created: 2019/02/07 17:34:52 by tbeguin           #+#    #+#             */
+/*   Updated: 2019/02/08 18:22:38 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+#include <fcntl.h>
 
-int		main(int argc, char **argv)
+/*char	***/int ft_check_file(char *file)
 {
-	//t_mlx	*mlx_all;
+	int		fd;
+	int		i;
+	char	*line;
+	char	**split;
 
-	if (argc != 2)
+	fd = open(file, O_RDONLY);
+	while (get_next_line(fd, &line) == 1)
 	{
-		ft_putstr("usage : ./fdf map_file\n");
-		return (-1);
+		split = ft_strsplit(line, ' ');
+		i = -1;
+		while (split[++i] != '\0')
+		{
+			ft_putstr(split[i]);
+		}
+		ft_putstr("\n");
 	}
-	if (ft_check_file(argv[1]) == -1)
-	{
-		ft_putstr("error\n");
-		return (-1);
-	}
-	/*
-	mlx_all = ft_new_mlx();
-	mlx_all = ft_new_win(mlx_all, "fdf", 1920, 1080);
-	mlx_key_hook(mlx_all->win->win_ptr, ft_key_hook, (void *)mlx_all);
-	mlx_mouse_hook(mlx_all->win->win_ptr, ft_mouse_hook, (void *)mlx_all);
-	mlx_loop(mlx_all->mlx_ptr);*/
 	return (0);
 }

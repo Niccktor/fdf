@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/07 16:44:56 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/08 18:09:35 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,52 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 
-typedef struct	s_point
+typedef struct		s_point
 {
-	int			x;
-	int			y;
-}				t_point;
+	int				x;
+	int				y;
+}					t_point;
 
-typedef struct	s_bres
+typedef struct		s_map
 {
-	int			x1;
-	int			y1;
-	int			x2;
-	int			y2;
-	double		dx;
-	double		dy;
-	int			x_inc;
-	int			y_inc;
-	int			i;
-	int			error;
-}				t_bres;
+	int				*depth;
+	int				*color;
+	int				height;
+	struct t_map	*prev;
+	struct t_map	*next;
+}					t_map;
 
-
-typedef struct	s_win
+typedef struct		s_bres
 {
-	void		*win_ptr;
-	char		*name;
-	int 		size_x;
-	int 		size_y;
-	int			ligne;
-	int			x_ligne;
-	int			y_ligne;
-}				t_win;
+	int				x1;
+	int				y1;
+	int				x2;
+	int				y2;
+	double			dx;
+	double			dy;
+	int				x_inc;
+	int				y_inc;
+	int				i;
+	int				error;
+}					t_bres;
 
-typedef struct	s_mlx
+
+typedef struct		s_win
 {
-	void		*mlx_ptr;
-	t_win		*win;
-}				t_mlx;
+	void			*win_ptr;
+	char			*name;
+	int 			size_x;
+	int 			size_y;
+	int				ligne;
+	int				x_ligne;
+	int				y_ligne;
+}					t_win;
+
+typedef struct		s_mlx
+{
+	void			*mlx_ptr;
+	t_win			*win;
+}					t_mlx;
 
 /*
  *					event.c
@@ -75,6 +84,9 @@ int		ft_abs(int x);
  */
 void	ft_draw_ligne(t_mlx *mlx_all, int x, int y/*, t_point *point1, t_point *point2*/, int color);
 void	ft_draw_ligne2(t_mlx *mlx_all, t_bres *bres, int color);
-
+/*
+ *					read.c
+ */
+int		ft_check_file(char *file);
 
 #endif

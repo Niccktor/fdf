@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/14 15:49:27 by tbeguin           #+#    #+#              #
-#    Updated: 2019/02/07 15:12:31 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/02/08 18:40:18 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ FT_LNK	= -L $(LIB_FT) -l ft
 SRC = main.c	\
 	  event.c	\
 	  util.c	\
-	  draw.c
+	  draw.c	\
+	  read.c
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
@@ -53,4 +54,5 @@ fclean : clean
 	@make fclean -C $(LIB_FT)
 	@echo "\033[31mRemoved $(NAME)"
 
-re : fclean all
+re : fclean
+	make $(all)
