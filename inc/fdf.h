@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/08 18:09:35 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/08 20:29:29 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_map
 {
 	int				*depth;
 	int				*color;
-	int				height;
+	int				len;
 	struct t_map	*prev;
 	struct t_map	*next;
 }					t_map;
@@ -87,6 +87,7 @@ void	ft_draw_ligne2(t_mlx *mlx_all, t_bres *bres, int color);
 /*
  *					read.c
  */
-int		ft_check_file(char *file);
+int		ft_read_file(char *file);
+int		ft_check_file(char **split);
 
 #endif
