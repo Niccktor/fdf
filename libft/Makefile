@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 20:10:01 by tbeguin           #+#    #+#              #
-#    Updated: 2019/02/19 17:41:13 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/02/19 18:12:10 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,8 @@ SRCS =  ft_memset.c 	\
 	   ft_isupper.c		\
 	   get_next_line.c	\
 	   ft_atoi_base.c	\
-	   ft_abs.c
+	   ft_abs.c			\
+	   ft_power.c
 
 OBJS = $(SRCS:.c=.o)
 
