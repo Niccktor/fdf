@@ -6,20 +6,24 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 19:30:51 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/13 16:39:32 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/19 17:59:14 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-#include <math.h> /////////
 
 t_mlx	*ft_new_mlx()
 {
 	t_mlx	*new;
 
 	new = (t_mlx *)ft_memalloc(sizeof(t_mlx));
+	if (new == NULL)
+		return (NULL);
 	new->mlx_ptr = mlx_init();
 	new->map = (t_map *)ft_memalloc(sizeof(t_map));
+	if (new->map == NULL)
+		return (NULL);
+	new->map->len = -1;
 	return (new);
 }
 
@@ -58,9 +62,4 @@ int		ft_ishexa(char c)
 			|| ((c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')))
 		return (1);
 	return (0);
-}
-
-int		ft_abs(int x)
-{
-	return (x < 0 ? -x : x);
 }

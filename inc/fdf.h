@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/19 15:21:47 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/19 18:04:46 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_point
 typedef struct		s_map
 {
 	int				**map;
-	int				**color;
+	unsigned int	**color;
 	int				height;
 	int				len;
 }					t_map;
@@ -88,8 +88,13 @@ void	ft_draw_ligne(t_mlx *mlx_all, int x, int y, int color);
  *					read.c
  */
 int		ft_parse_map(char *file, t_mlx *mlx_all);
-void	ft_get_map(t_mlx *mlx_all, char **line);
+int		ft_get_map(t_mlx *mlx_all, char **line, int k);
 int		ft_check_line(char *line);
 int		ft_get_height(char *file);
+/*
+ *					color.c
+ */
+unsigned int	ft_get_color(char *rgb);
+
 
 #endif

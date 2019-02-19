@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/14 15:49:27 by tbeguin           #+#    #+#              #
-#    Updated: 2019/02/08 20:06:21 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/02/19 18:05:25 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC = main.c	\
 	  event.c	\
 	  util.c	\
 	  draw.c	\
-	  read.c
+	  read.c	\
+	  color.c
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
@@ -56,3 +57,5 @@ fclean : clean
 
 re : fclean
 	make $(all)
+
+.PHONY: all clean fclean re
