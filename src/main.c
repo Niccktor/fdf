@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:06:50 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/08 20:12:17 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/13 16:24:01 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 int		main(int argc, char **argv)
 {
-	//t_mlx	*mlx_all;
+	t_mlx	*mlx_all;
 
 	if (argc != 2)
 	{
 		ft_putstr("usage : ./fdf map_file\n");
 		return (-1);
 	}
-	if (ft_read_file(argv[1]) == -1)
+	mlx_all = ft_new_mlx();
+	mlx_all = ft_new_win(mlx_all, "fdf", 1920, 1080);
+	if (ft_parse_map(argv[1], mlx_all) == -1)
 	{
-		ft_putstr("error\n");
+		ft_putstr("\nerror\n");
 		return (-1);
 	}
-	/*
+	
 	mlx_all = ft_new_mlx();
 	mlx_all = ft_new_win(mlx_all, "fdf", 1920, 1080);
 	mlx_key_hook(mlx_all->win->win_ptr, ft_key_hook, (void *)mlx_all);
 	mlx_mouse_hook(mlx_all->win->win_ptr, ft_mouse_hook, (void *)mlx_all);
-	mlx_loop(mlx_all->mlx_ptr);*/
+	mlx_loop(mlx_all->mlx_ptr);
 	return (0);
 }
 /*
