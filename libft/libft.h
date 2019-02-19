@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:01:19 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/19 16:20:17 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/19 17:41:42 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					get_next_line(const int fd, char **line);
 int					ft_atoi_base(char *str, int base);
+int					ft_abs(int x);
 
 #endif
