@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 19:30:51 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/19 17:59:14 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/20 21:09:41 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,63 @@ t_mlx	*ft_new_mlx()
 {
 	t_mlx	*new;
 
-	new = (t_mlx *)ft_memalloc(sizeof(t_mlx));
-	if (new == NULL)
+	if ((new = (t_mlx *)ft_memalloc(sizeof(t_mlx))) == NULL)
 		return (NULL);
-	new->mlx_ptr = mlx_init();
-	new->map = (t_map *)ft_memalloc(sizeof(t_map));
-	if (new->map == NULL)
+	if ((new->mlx_ptr = mlx_init()) == NULL)
+	{
+		ft_memdel((void **)&new);
 		return (NULL);
+	}
+	if ((new->map = (t_map *)ft_memalloc(sizeof(t_map))) == NULL)
+	{
+		ft_memdel((void **)&(new->mlx_ptr));
+		ft_memdel((void **)&new);
+		return (NULL);
+	}
 	new->map->len = -1;
 	return (new);
 }
 
-t_mlx	*ft_new_win(t_mlx *mlx_all, char *s, int size_x, int size_y)
+t_mlx	*ft_new_win(t_mlx *mlx_all, char *s, int width, int height)
 {
-	mlx_all->win = (t_win *)ft_memalloc(sizeof(t_win));
+	if ((mlx_all->win = (t_win *)ft_memalloc(sizeof(t_win))) == NULL)
+	{	
+		ft_memdel((void **)&(mlx_all->mlx_ptr));
+		ft_memdel((void **)&(mlx_all->map));
+		ft_memdel((void **)&mlx_all);
+		return (NULL);
+	}
 	mlx_all->win->name = s;
-	mlx_all->win->size_x = size_x;
-	mlx_all->win->size_y = size_y;
-	mlx_all->win->win_ptr = mlx_new_window(mlx_all->mlx_ptr,mlx_all->win->size_x
-			, mlx_all->win->size_y, mlx_all->win->name);
+	mlx_all->win->width = width;
+	mlx_all->win->height = height;
+	mlx_all->win->win_ptr = mlx_new_window(mlx_all->mlx_ptr,
+			mlx_all->win->width, mlx_all->win->height, mlx_all->win->name);
 	mlx_all->win->ligne = 0;
 	mlx_all->win->x_ligne = 0;
 	mlx_all->win->y_ligne = 0;
+
 	return (mlx_all);
 }
 
-t_point		*ft_new_point(int x, int y)
+t_mlx	*ft_new_cam(t_mlx *mlx_all)
 {
-	t_point *new;
-
-	new = (t_point *)ft_memalloc(sizeof(t_point));
-	new->x = x;
-	new->y = y;
-	return (new);
-}
-
-void		ft_free_point(t_point *old)
-{
-	return (ft_memdel((void **)old));
+	if ((mlx_all->cam = (t_cam *)ft_memalloc(sizeof(t_cam))) == NULL)
+	{
+		ft_memdel((void **)&(mlx_all->mlx_ptr));
+		ft_memdel((void **)&(mlx_all->map));
+		ft_memdel((void **)&(mlx_all->win));
+		ft_memdel((void **)&mlx_all);
+		return (NULL);
+	}
+	mlx_all->cam->proj = 'i';
+	mlx_all->cam->di_x = 0.523599;
+	mlx_all->cam->di_y = mlx_all->win->width / (mlx_all->win->width
+			+ mlx_all->win->height) / 2;
+	mlx_all->cam->di_z = mlx_all->win->width / (mlx_all->win->width
+			+ mlx_all->win->height) / 5;
+	mlx_all->cam->up_down = 0;
+	mlx_all->cam->left_right = 0;
+	return (mlx_all);
 }
 
 int		ft_ishexa(char c)

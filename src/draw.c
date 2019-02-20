@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 18:45:12 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/07 17:05:01 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/20 22:47:53 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,42 @@ void		ft_draw_ligne(t_mlx *mlx_all, int x, int y, int color)
 		mlx_pixel_put(mlx_all->mlx_ptr,
 				mlx_all->win->win_ptr, bres->x1, bres->y1, color);
 	}
+}
+
+int		ft_draw_map(t_mlx *mlx_all)
+{
+	int i;
+	int j;
+	int x;
+	int y;
+
+	i = 0;
+	while (i < mlx_all->map->height)
+	{
+		j = 0;
+		while (j < mlx_all->map->len)
+		{
+			mlx_all->win->x_ligne = ((i * 32) - (j * 18)) * -cos(0.523599) + 500;
+			mlx_all->win->y_ligne = -(mlx_all->map->map[i][j]) +
+				((i * 32) + (j * 18)) * sin(0.523599) + 500;
+			if (j + 1 < mlx_all->map->len)
+			{
+				x = ((i * 32) - ((j + 1)) * 18) * -cos(0.523599) + 500;
+				y = -(mlx_all->map->map[i][j + 1])
+					+ ((i * 32) + ((j + 1)) * 18) * sin(0.523599) + 500;
+				ft_draw_ligne(mlx_all, x, y, 0xFFFF00);
+			}
+			if (i + 1 < mlx_all->map->height)
+			{
+
+				x = (((i + 1) * 32) - (j * 18)) * -cos(0.523599) + 500;
+				y = -(mlx_all->map->map[i + 1][j])
+					+ (((i + 1) * 32) + (j * 18)) * sin(0.523599) + 500;
+				ft_draw_ligne(mlx_all, x, y, 0xFFFF00);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
