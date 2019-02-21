@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 19:30:51 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 18:17:39 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/21 20:14:48 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ t_mlx	*ft_new_cam(t_mlx *mlx_all)
 	mlx_all->cam->di_z = 1;
 	mlx_all->cam->up_down = 0;
 	mlx_all->cam->left_right = 0;
+	mlx_all->cam->angle = 0.523599;
 	return (mlx_all);
 }
 

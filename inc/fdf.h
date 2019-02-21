@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 18:49:14 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/21 20:18:54 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_cam
 	double			di_y;
 	double			di_z;
 	char			proj;
+	double			angle;
 }					t_cam;
 
 typedef struct		s_mlx
@@ -105,6 +106,6 @@ unsigned int	ft_get_color(char *rgb);
 /*
  * 					iso.c
  */
-//void			ft_iso(t_mlx *mlx_all);
+void			ft_iso(t_mlx *mlx_all);
 
 #endif

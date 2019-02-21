@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 18:31:01 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 18:49:01 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/21 20:16:13 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,53 +26,81 @@ int 	ft_key_hook(int key, void *para)
 		exit(0);
 		return (1);
 	}
-	if (key == 15)
+	else if (key == 15)
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+	else if (key == 12)
+	{
+		mlx_all->cam->angle /=1.2;
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+		ft_iso(mlx_all);
+	}
+	else if (key == 14)
+	{
+		mlx_all->cam->angle *=1.2;
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+		ft_iso(mlx_all);
+	}
+	else if (key == 78)
+	{
+		mlx_all->cam->di_x /=1.2;
+		mlx_all->cam->di_y /=1.2;
+		mlx_all->cam->di_z /=1.2;
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+		ft_iso(mlx_all);
+	}
+	else if (key == 69)
+	{
+		mlx_all->cam->di_x *=1.2;
+		mlx_all->cam->di_y *=1.2;
+		mlx_all->cam->di_z *=1.2;
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+		ft_iso(mlx_all);
+	}
 	else if (key == 34)
 	{
-		//mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		//ft_iso(mlx_all);
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+		ft_iso(mlx_all);
 	}
 	else if (key == 32)
 	{
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	else if (key == 126)
 	{
 		mlx_all->cam->up_down -= 10;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	else if (key == 125)
 	{
 		mlx_all->cam->up_down += 10;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	else if (key == 123)
 	{
 		mlx_all->cam->left_right -= 10;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	else if (key == 124)
 	{
 		mlx_all->cam->left_right += 10;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	else if (key == 116)
 	{
 		mlx_all->cam->di_z += 1;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	else if (key == 121)
 	{
 		mlx_all->cam->di_z -= 1;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
-		ft_draw_map(mlx_all);
+		ft_iso(mlx_all);
 	}
 	ft_putstr("----------------------key----------------------\n");
 	ft_putnbr(key);

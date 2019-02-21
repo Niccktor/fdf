@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 18:45:12 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 18:45:51 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/21 19:35:12 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,62 +59,4 @@ void		ft_draw_ligne(t_mlx *mlx_all, int x, int y, int color)
 		mlx_pixel_put(mlx_all->mlx_ptr,
 				mlx_all->win->win_ptr, bres->x1, bres->y1, color);
 	}
-}
-
-int		ft_draw_map(t_mlx *mlx_all)
-{
-	int i;
-	int j;
-	int x;
-	int y;
-
-	i = 0;
-	while (i < mlx_all->map->height)
-	{
-		j = 0;
-		while (j < mlx_all->map->len)
-		{
-			mlx_all->win->x_ligne = 
-				((i * mlx_all->cam->di_x) - (j * mlx_all->cam->di_y))
-				* -cos(0.523599)
-				+ (1920 / 2 - mlx_all->map->len / 2)
-				+ mlx_all->cam->left_right;
-			mlx_all->win->y_ligne = -(mlx_all->map->map[i][j] *
-				   	mlx_all->cam->di_z)
-				+ ((i * mlx_all->cam->di_x) + (j * mlx_all->cam->di_y))
-				* sin(0.523599)
-				+ (1080 / 2 - mlx_all->map->height / 2)
-				+ mlx_all->cam->up_down;
-			if (j + 1 < mlx_all->map->len)
-			{
-				x =
-					((i * mlx_all->cam->di_x) - ((j + 1)) * mlx_all->cam->di_y)
-					* -cos(0.523599)
-					+ (1920 / 2 - mlx_all->map->len / 2)
-					+ mlx_all->cam->left_right;
-				y = -(mlx_all->map->map[i][j + 1] * mlx_all->cam->di_z)
-					+ ((i * mlx_all->cam->di_x)
-					+ ((j + 1)) * mlx_all->cam->di_y)
-					* sin(0.523599)
-					+ (1080 / 2 - mlx_all->map->height / 2)
-					+ mlx_all->cam->up_down;
-				ft_draw_ligne(mlx_all, x, y, 0xFFFF00);
-			}
-			if (i + 1 < mlx_all->map->height)
-			{
-
-				ft_draw_ligne(mlx_all,
-					(((i + 1) * mlx_all->cam->di_x) - (j * mlx_all->cam->di_y))
-				   	* -cos(0.523599) + (1920 / 2 - mlx_all->map->len / 2)
-					+ mlx_all->cam->left_right ,-(mlx_all->map->map[i + 1][j]
-					* mlx_all->cam->di_z) + (((i + 1) * mlx_all->cam->di_x)
-					+ (j * mlx_all->cam->di_y)) * sin(0.523599)
-					+ (1080 / 2 - mlx_all->map->height / 2)
-					+ mlx_all->cam->up_down ,0xFFFF00);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
 }
