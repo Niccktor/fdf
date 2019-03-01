@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 16:09:03 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 20:18:54 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/27 00:13:06 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,12 @@ unsigned int	ft_get_color(char *rgb);
  * 					iso.c
  */
 void			ft_iso(t_mlx *mlx_all);
+/*
+ *					retation.c
+ */
+void			ft_x_rotation(t_mlx *mlx_all);
+
+
+void			ft_print_tab(t_mlx *mlx_all);
 
 #endif

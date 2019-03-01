@@ -6,7 +6,7 @@
 #    By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/14 15:49:27 by tbeguin           #+#    #+#              #
-#    Updated: 2019/02/20 22:48:52 by tbeguin          ###   ########.fr        #
+#    Updated: 2019/02/26 23:42:57 by tbeguin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRC = main.c	\
 	  draw.c	\
 	  read.c	\
 	  color.c	\
-	  iso.c
+	  iso.c		\
+	  rotation.c
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
