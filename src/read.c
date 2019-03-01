@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 17:34:52 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/20 19:20:36 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/03/01 16:34:12 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		ft_parse_map(char *file, t_mlx *mlx_all)
 		if (ft_check_line(line) == -1
 				|| ft_get_map(mlx_all, ft_strsplit(line, ' '), i) == -1)
 			return (-1);
+		ft_memdel((void **)&line);
 		i++;
 	}
 	ft_print_tab(mlx_all);
