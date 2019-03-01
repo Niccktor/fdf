@@ -1,3 +1,4 @@
 *.o
 fdf
 libft/libft.a
+test_map/*
