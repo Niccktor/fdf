@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 18:31:01 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 20:16:13 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/02/26 23:46:58 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,13 @@ int 	ft_key_hook(int key, void *para)
 		mlx_all->cam->di_z -= 1;
 		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
 		ft_iso(mlx_all);
+	}
+	else if (key == 86)
+	{
+		ft_x_rotation(mlx_all);
+		mlx_clear_window(mlx_all->mlx_ptr, mlx_all->win->win_ptr);
+		ft_iso(mlx_all);
+
 	}
 	ft_putstr("----------------------key----------------------\n");
 	ft_putnbr(key);
