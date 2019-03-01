@@ -6,7 +6,7 @@
 /*   By: tbeguin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 18:45:12 by tbeguin           #+#    #+#             */
-/*   Updated: 2019/02/21 19:35:12 by tbeguin          ###   ########.fr       */
+/*   Updated: 2019/03/01 16:31:26 by tbeguin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void		ft_draw_ligne(t_mlx *mlx_all, int x, int y, int color)
 		mlx_pixel_put(mlx_all->mlx_ptr,
 				mlx_all->win->win_ptr, bres->x1, bres->y1, color);
 	}
+	ft_memdel((void **)&bres);
 }
